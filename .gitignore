@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+._*
+.idea/
+.vscode/
+/uploads/*
+!/uploads/.gitkeep
