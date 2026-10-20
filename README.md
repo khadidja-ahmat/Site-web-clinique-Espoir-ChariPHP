@@ -6,10 +6,12 @@ La même clinique existe en **Laravel pur** : [site-web-clinique_espoir](https:/
 
 ## Fonctionnalités
 
-- Site public : accueil, à propos, équipe, contact
-- Connexion de l'administrateur, protection CSRF, sessions
-- Back-office en AJAX : liste, ajout, modification, suppression pour chaque rubrique
-- Requêtes SQL préparées (PDO), mots de passe hachés en bcrypt
+- Site public : accueil, à propos, équipe médicale (nom et spécialité), contact
+- Connexion du personnel (mot de passe haché en bcrypt, session renouvelée à la connexion, déconnexion automatique après 30 minutes d'inactivité, déconnexion manuelle)
+- Toutes les pages de gestion sont protégées : sans connexion, on est renvoyé vers `login.php`
+- Gestion complète (liste, ajout, modification, suppression) des patients, médecins, rendez-vous, consultations, ordonnances, employés et historiques, en AJAX
+- Protection CSRF sur toutes les écritures et requêtes SQL préparées (PDO)
+- Installation guidée du premier administrateur (`config/install.php`) et fichier `schema.sql` pour les tables
 
 ## Technologies
 
@@ -41,6 +43,10 @@ config/               Base de données, routes, menu, installation
 includes/             Morceaux de pages communs
 schema.sql            Tables de la clinique
 ```
+
+## Différences avec la version Laravel
+
+Les deux versions ont les mêmes tables et les mêmes pages. La version Laravel va plus loin sur ces points : limitation des tentatives de connexion, validation détaillée des formulaires, envoi de photos contrôlé, API JSON, tests automatisés et données fictives. Cette version-ci montre ce qu'on peut faire en PHP natif avec ChariPHP.
 
 ## Remarques
 
